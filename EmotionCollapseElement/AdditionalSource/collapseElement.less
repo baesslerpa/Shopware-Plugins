@@ -1,0 +1,75 @@
+.my-collapse--header {
+  .unitize-padding(10, 20);
+  .unitize-margin(10, 0, 0, 0);
+  .unitize(font-size, 16);
+  .unitize(line-height, 16);
+  display: block;
+  position: relative;
+  z-index: 1100;
+  border-bottom: 1px solid @border-color;
+  border-radius: 0;
+  cursor: pointer;
+
+  .collapse--toggler {
+    .unitize-height(16);
+    .unitize(top, 10);
+    .unitize(right, 20);
+    .unitize(font-size, 6);
+    .unitize(line-height, 16);
+    position: absolute;
+    font-weight: @font-base-weight;
+    font-family: 'shopware';
+
+    &:before {
+      content: "\e612";
+      display: block;
+      transition: 0.3s ease;
+    }
+  }
+
+  &:hover {
+    color: @brand-primary;
+  }
+
+  &.is--active {
+    color: @brand-secondary;
+    font-weight: @font-bold-weight;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+  //  border-color: darken(@border-color, 15%);
+  border-color: @brand-primary;
+    z-index: 1300;
+
+    .collapse--toggler {
+      &:before {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+.my-collapse--content {
+
+  display: block;
+  position: relative;
+  z-index: 1000;
+  padding: 1rem 1rem 0rem;
+  background-color: white;
+  max-height: 0px;
+  overflow: hidden;
+  transition: 0.4s ease-out;
+  // padding: 2rem 1rem;
+
+  // &.is--collapsed {
+  //   display: block;
+  //   z-index: 1200;
+  // }
+}
+
+.js--collapse-target {
+  display: none;
+
+  &.is--collapsed {
+    display: block;
+  }
+}
